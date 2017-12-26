@@ -1,0 +1,29 @@
+{
+  "name": "test-flow",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sergio-svb/test-flow.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "Sergio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sergio-svb/test-flow/issues"
+  },
+  "homepage": "https://github.com/Sergio-svb/test-flow#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.3"
+  }
+}
