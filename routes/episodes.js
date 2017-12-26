@@ -4,6 +4,8 @@ const collection = require('../source/silicon-valley.json');
 const episodes = collection['_embedded'].episodes;
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     console.log('Time: ', Date.now());
     next();
 });
