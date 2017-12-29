@@ -6,7 +6,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8000
+# serve at localhost:8000
 node server.js
 
 # exaples api requests

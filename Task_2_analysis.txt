@@ -1,0 +1,11 @@
+1) Both superagent and mongoose support promises, so we can make code readable with promise chains or ES2015 async/await 
+
+2) Not handled 'invitationBody' parameter. Method 'superagent.send()' takes json, but it is not clear how he will behave if he pass undefined.
+
+3) In 'end()' handler the request error case is not processed, so response will always contain 'invitationResponse' regardless of how the request 'authUrl' will occur. So it should be, or is it not correct behavior? I think, if an error occurs, then you need to send the 500th code in the response.
+
+4) shopId may be undefined, then user will not be able to invite to their store, and then we do not need to do http request at all.
+
+5) In the section 'Shop​.findById' block 'if​​ ​(shop​.invitations​.indexOf​(invitationResponse​.body​.invitationId​))' must be changed in this way: ​​'if​​ ​(shop​.invitations​.indexOf​(invitationResponse​.body​.invitationId​) === -1)'. But instead function indexOf() we can use Array.prototype.includes(), available from ES6. Then the block indicated above can be replaced by 'if​​ ​(shop​.invitations​.includes(invitationResponse​.body​.invitationId​))'.
+
+6) ​Methods 'User​.findOneAndUpdate' and 'Shop​.findById' are run sequentially, but parameter shopId is known in advance, and we can run them in parallel. Methods of Mongoose 'User​.findOneAndUpdate()' and 'Shop​.findById()' will return promises, and we can we can wrap them in Promise.all(). After they are successfully performed, we can call shop.save();
